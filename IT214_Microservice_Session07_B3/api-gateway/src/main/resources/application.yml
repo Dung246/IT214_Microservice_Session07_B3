@@ -1,0 +1,20 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/api/accounts/**
+        - id: transaction-service
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/api/transactions/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

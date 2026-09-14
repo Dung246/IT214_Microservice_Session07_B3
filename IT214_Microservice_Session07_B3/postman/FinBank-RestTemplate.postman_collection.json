@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "FinBank RestTemplate",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create 1001",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"accountNumber\":\"1001\",\"ownerName\":\"Nguyen Van A\",\"balance\":10000000}"
+        },
+        "url": {
+          "raw": "http://localhost:8222/api/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create 1002",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"accountNumber\":\"1002\",\"ownerName\":\"Nguyen Van B\",\"balance\":5000000}"
+        },
+        "url": {
+          "raw": "http://localhost:8222/api/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fromAccountNumber\":\"1001\",\"toAccountNumber\":\"1002\",\"amount\":2000000,\"description\":\"Chuyen tien thanh toan hoa don\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8222/api/transactions/transfer",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "transactions",
+            "transfer"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer insufficient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fromAccountNumber\":\"1001\",\"toAccountNumber\":\"1002\",\"amount\":100000000,\"description\":\"Test\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8222/api/transactions/transfer",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "transactions",
+            "transfer"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transfer account not found",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fromAccountNumber\":\"1001\",\"toAccountNumber\":\"9999\",\"amount\":1000000,\"description\":\"Test\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8222/api/transactions/transfer",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "transactions",
+            "transfer"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get 1001",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8222/api/accounts/1001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "accounts",
+            "1001"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get 1002",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8222/api/accounts/1002",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8222",
+          "path": [
+            "api",
+            "accounts",
+            "1002"
+          ]
+        }
+      }
+    }
+  ]
+}
